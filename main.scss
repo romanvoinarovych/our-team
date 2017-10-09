@@ -1,0 +1,280 @@
+$colorSocial: #cccccc;
+$textRight: #666666;
+$textColor: #333333;
+$yellowColor: #ffcc00;
+$fadedColor: #898f8f;
+$fontP: "Raleway", sans-serif;
+$fontTitle: "Roboto", sans-serif;
+$fontHref: "Open Sans", sans-serif;
+
+@mixin divider($height) {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 210px;
+    height: $height;
+    /*height: 2px;*/
+    background-color: $yellowColor;
+    /*top: calc((100% - 2px)/2);*/
+    top: calc(0.5em - #{$height}/2);
+}
+
+@mixin cols($cols) {
+    width: calc(100%/#{$cols});
+    float: left;
+}   
+a {
+    -webkit-transition: color .3s ease-in, border-color .3s ease-in, background-color .3s ease-in, opacity .3s ease-in;
+    transition: color .3s ease-in, border-color .3s ease-in, background-color .3s ease-in, opacity .3s ease-in;
+}
+.container {
+    width: 1140px;
+    margin: 0 auto;
+}
+.title {
+    text-align: center;
+
+    p {
+        color: $fadedColor;
+        text-transform: uppercase;
+        font-family: $fontP;
+        font-size: 18px;
+        line-height: 1.33;
+        padding-top: 110px;
+        margin: 0;
+        letter-spacing: .02em;
+    }
+
+    h1 {
+        color: $yellowColor;
+        font-family: $fontTitle;
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: 60px;
+        line-height: 1.1;
+        margin: 0;
+        padding: 20px 0 30px;
+    }
+
+    .divider {
+        position: relative;
+        display: inline-block;
+
+        &::before {
+            @include divider(2px);
+
+            /*left: calc(50% - 210px - 14px);*/
+            right: 1.5em;
+        }
+
+        &::after {
+            @include divider(2px);
+
+            left: 1.5em;
+
+            /*right: calc(50% - 210px - 14px);*/
+        }
+    }
+
+    i.icon {
+        color: $yellowColor;
+        font-size: 20px;
+    }
+}
+.left {
+    @include cols(2);
+    margin: 40px 0;
+    padding: 77px 0 67px 67px;
+    border-right: 1px solid $yellowColor;
+    position: relative;
+    img {
+        margin: 14px;
+        display: block;
+        border: 1px solid $yellowColor;
+    }
+    .angel-left {
+    position: absolute;
+    top: 312px;
+    left: 12px;
+    display: block;
+    &:hover {
+        -webkit-transform: scale(1.2,1.2);
+                transform: scale(1.2,1.2);
+    }
+    i {
+        font-size: 40px;
+        color: $yellowColor;
+    }
+    }
+    .image-border {
+        position: relative;
+        display: inline-block;
+        &::before, &::after, & > :first-child::before, & > :first-child::after {
+            position:absolute;
+            width:80px; height: 80px;
+            border-color:$yellowColor; /* or whatever colour */
+            border-style:solid; /* or whatever style */
+            content: ' ';
+        }
+        &::before {
+            top:0;
+            left:0;
+            border-width: 1px 0 0 1px;
+        }
+        &::after {
+            top:0;
+            right:0;
+            border-width: 1px 1px 0 0;
+        }
+        & > :first-child::before {
+            bottom:0;
+            right:0;
+            border-width: 0 1px 1px 0;
+        }
+        & > :first-child::after {
+            bottom:0;
+            left:0;
+            border-width: 0 0 1px 1px;
+        }   
+    }
+}
+.name {
+        h2 {
+        padding: 130px 0 30px;
+        margin: 0;
+        color: $textRight;
+        font-family: $fontTitle;
+        font-size: 36px;
+        letter-spacing: 0.02em;
+        font-weight: 900;
+    }
+}
+.right {
+    @include cols(2);
+    text-align: center;
+    padding: 0 68px 0 83px;
+    position: relative;
+    .angel-right {
+    position: absolute;
+    top: 352px;
+    right: 12px;
+    display: block;
+    &:hover {
+        -webkit-transform: scale(1.2,1.2);
+                transform: scale(1.2,1.2);
+    }
+    i {
+        font-size: 40px;
+        color: $yellowColor;
+    }
+    } 
+    .name {
+        position: relative;
+        h2 {
+        padding: 130px 0 30px;
+        margin: 0;
+        color: $textRight;
+        font-family: $fontTitle;
+        font-size: 36px;
+        letter-spacing: 0.02em;
+        font-weight: 900;
+        }
+        &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        height: 1px;
+        background-color: $yellowColor;
+        width: 23%;
+        left: 38.5%;
+        bottom: 0;
+        }
+    }
+    h3 {
+        padding: 31px 0 25px;
+        margin: 0;
+        color: $textRight;
+        font-family: $fontP;
+        font-weight: 400;
+    }
+
+    .socials a {
+        color: $colorSocial;
+        text-decoration: none;
+    }
+
+    .fa-stack-1x {
+        font-size: 14px;
+    }
+
+    .socials a:hover {
+        color: #000;
+    }
+    .info-text {
+        position: relative;
+        p {
+        padding: 30px 0 29px;
+        margin: 0;
+        font-family: $fontP;
+        color: $textRight;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.71;
+    }
+    &::after {
+        display: inline-block;
+        content: url('../img/line.png');
+        position: absolute;
+        bottom: 0;
+        left: calc((100% - 50px) / 2);
+        }
+}    
+    .view {
+        margin-top: 25px;
+        display: inline-block;
+        width: 120px;
+        height: 25px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-family: $fontHref;
+        font-size: 14px;
+        line-height: 1.71;
+        font-weight: 700;
+        color: $textRight;
+        border: 1px solid $yellowColor;
+        &:hover {
+            border: 1px solid $textRight;
+            color: $yellowColor;
+        }   
+    }
+}
+.ba-row {
+    margin: 0 0 100px;
+}
+.circle {
+    clear: both;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    a {
+        margin: 0 5px;
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: none;
+        background-color: $yellowColor;
+        text-decoration: none;
+        &:hover {
+            display: block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 1px solid $yellowColor;
+            background-color: transparent;
+        }
+    }
+}
